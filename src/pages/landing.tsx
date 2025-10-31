@@ -129,6 +129,7 @@ function Landing() {
         <div className="py-6 md:pt-12 lg:pt-20 flex items-center justify-center">
           <Button
             variant="ghost"
+            href={LINKS.releaseNotes}
             color="default"
             aria-label="Read PHP 8.5 release notes"
             startContent={
@@ -312,7 +313,7 @@ function Landing() {
             </Container>
             <div className="py-10 mb-4 flex flex-col md:flex-row gap-4 justify-center items-center">
               <Button
-                href={LINKS.docs}
+                href={LINKS.migrationGuide}
                 startContent={<DocsIcon size={20} />}
                 color="secondary"
                 size={isMobile ? "lg" : "xl"}
@@ -322,7 +323,7 @@ function Landing() {
                 See migration guide
               </Button>
               <Button
-                href={LINKS.docs}
+                href={LINKS.releaseNotes}
                 startContent={<DocsIcon size={20} />}
                 color="secondary"
                 variant="bordered"
