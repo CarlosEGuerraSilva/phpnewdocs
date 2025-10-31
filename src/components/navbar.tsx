@@ -27,11 +27,11 @@ function Navbar() {
   const MainLinks: MainLink[] = [
     {
       text: "Downloads",
-      href: LINKS.docs,
+      href: LINKS.download,
     },
     {
       text: "Docs",
-      href: LINKS.getStarted,
+      href: LINKS.docs,
     },
     {
       text: "Get Involved",
@@ -39,7 +39,7 @@ function Navbar() {
     },
     {
       text: "PHP 8.5",
-      href: "#",
+      href: LINKS.releaseNotes,
     },
   ];
 
