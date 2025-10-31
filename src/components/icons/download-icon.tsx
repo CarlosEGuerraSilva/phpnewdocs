@@ -9,6 +9,7 @@ const DownloadIcon: React.FC<IconProps> = ({ size = 24, ...props }) => {
       width={props.width || dimension}
       height={props.height || dimension}
       viewBox="0 0 48 48"
+      fill="none"
       {...props}
     >
       <path
