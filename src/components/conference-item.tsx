@@ -5,6 +5,7 @@ import { ExternalLinkIcon } from "./icons/external-link-icon";
 import Typography from "./typography";
 import { LocationIcon } from "./icons/location-icon";
 import { CalendarIcon } from "./icons/calendar-icon";
+import { Link } from "react-router-dom";
 
 export interface ConferenceItemProps extends React.HTMLAttributes<HTMLElement> {
   date: string;
@@ -21,6 +22,8 @@ const ConferenceItem: React.FC<ConferenceItemProps> = ({
   className,
   ...props
 }) => {
+  const isExternal = href.startsWith("http") || href.startsWith("//");
+
   return (
     <article
       className={cn(
@@ -35,14 +38,25 @@ const ConferenceItem: React.FC<ConferenceItemProps> = ({
             <time className="inline-block px-1.5 text-sm py-1 bg-surface-container rounded">
               {date}
             </time>
-            <a
-              href={href}
-              className="hover:decoration-dashed underline-offset-4 hover:underline"
-            >
-              <Typography variant="h2" component="h3" className="mt-2">
-                {title}
-              </Typography>
-            </a>
+            {isExternal ? (
+              <a
+                href={href}
+                className="hover:decoration-dashed underline-offset-4 hover:underline"
+              >
+                <Typography variant="h2" component="h3" className="mt-2">
+                  {title}
+                </Typography>
+              </a>
+            ) : (
+              <Link
+                to={href}
+                className="hover:decoration-dashed underline-offset-4 hover:underline"
+              >
+                <Typography variant="h2" component="h3" className="mt-2">
+                  {title}
+                </Typography>
+              </Link>
+            )}
             <div className="mt-4 text-sm text-on-surface-variant">
               <p>
                 <LocationIcon

@@ -9,6 +9,7 @@ import {
 import { cn } from "@/utils/cn";
 import clsx from "clsx";
 import { forwardRef } from "react";
+import { Link } from "react-router-dom";
 
 export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "color">,
@@ -160,16 +161,26 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
 
     if (href) {
+      const isExternal = href.startsWith("http") || href.startsWith("//");
+
+      if (isExternal) {
+        return (
+          <a
+            href={href}
+            target={target}
+            rel={rel}
+            aria-disabled={disabled}
+            className={className}
+          >
+            {content}
+          </a>
+        );
+      }
+
       return (
-        <a
-          href={href}
-          target={target}
-          rel={rel}
-          aria-disabled={disabled}
-          className={className}
-        >
+        <Link to={href} aria-disabled={disabled} className={className}>
           {content}
-        </a>
+        </Link>
       );
     }
 

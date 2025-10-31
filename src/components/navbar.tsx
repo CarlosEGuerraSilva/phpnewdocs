@@ -13,6 +13,7 @@ import { SearchIcon } from "./icons/search-icon";
 import { useBreakpointCondition } from "react-tw-breakpoints";
 import { cn } from "@/utils/cn";
 import { LINKS } from "@/consts/links";
+import { Link } from "react-router-dom";
 
 interface MainLink {
   text: string;
@@ -26,11 +27,11 @@ function Navbar() {
   const MainLinks: MainLink[] = [
     {
       text: "Downloads",
-      href: "#",
+      href: LINKS.docs,
     },
     {
       text: "Docs",
-      href: "#",
+      href: LINKS.getStarted,
     },
     {
       text: "Get Involved",
@@ -62,8 +63,8 @@ function Navbar() {
             aria-expanded={isOpen}
             aria-controls="main-menu"
           />
-          <a
-            href={LINKS.home}
+          <Link
+            to={LINKS.home}
             className="mx-2 lg:mx-8 md:px-4"
             aria-label="PHP Home"
           >
@@ -72,7 +73,7 @@ function Navbar() {
               className="text-on-primary-container"
               aria-hidden="true"
             />
-          </a>
+          </Link>
           <ul
             id="main-menu"
             className={cn(
