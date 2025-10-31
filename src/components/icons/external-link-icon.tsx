@@ -1,6 +1,6 @@
 import { IconProps } from "@/types/icon-props";
 
-const DocsIcon: React.FC<IconProps> = ({ size = 24, ...props }) => {
+const ExternalLinkIcon: React.FC<IconProps> = ({ size = 24, ...props }) => {
   const dimension = typeof size === "number" ? `${size}px` : size;
 
   return (
@@ -9,26 +9,17 @@ const DocsIcon: React.FC<IconProps> = ({ size = 24, ...props }) => {
       width={props.width || dimension}
       height={props.height || dimension}
       viewBox="0 0 48 48"
-      fill="none"
       {...props}
     >
-      <rect
-        width={40}
-        height={40}
-        x={4}
-        y={4}
-        stroke="currentColor"
-        strokeWidth={4}
-        rx={5}
-      />
       <path
         stroke="currentColor"
         strokeLinecap="round"
+        strokeLinejoin="round"
         strokeWidth={4}
-        d="M11 12h26M11 25h19M11 31h26M11 37h26"
+        d="M3 45 45 3m0 0H8.973M45 3v34.036"
       />
     </svg>
   );
 };
 
-export { DocsIcon };
+export { ExternalLinkIcon };
