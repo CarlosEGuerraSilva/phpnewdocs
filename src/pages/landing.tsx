@@ -89,12 +89,15 @@ function Landing() {
 
   return (
     <LandingLayout>
-      <section aria-label="New release">
+      <section aria-labelledby="announcement-heading">
+        <h2 id="announcement-heading" className="sr-only">
+          Announcement
+        </h2>
         <div className="py-6 md:pt-12 lg:pt-20 flex items-center justify-center">
           <Button
             variant="ghost"
             color="default"
-            aria-label="Read release notes"
+            aria-label="Read PHP 8.5 release notes"
             startContent={
               <div className="size-4 rounded-full bg-primary shadow-[0_0_20px_rgba(var(--color-primary),0.6)] animate-pulse" />
             }
@@ -105,7 +108,7 @@ function Landing() {
         </div>
       </section>
       <section
-        aria-label="Hero section"
+        aria-labelledby="hero-heading"
         className="block max-w-full relative overflow-hidden"
       >
         <Container
@@ -115,12 +118,13 @@ function Landing() {
           <div className="flex flex-col lg:flex-row gap-8 w-full">
             <div className="flex-1 lg:max-w-[50%] text-center lg:text-left">
               <div className="w-full flex justify-center lg:justify-start">
-                <LogoFlexible className="h-48" />
+                <LogoFlexible className="h-48" aria-hidden="true" />
               </div>
               <Typography
-                variant="h2"
+                variant="h1"
                 color="primary"
                 component="h1"
+                id="hero-heading"
                 className="leading-11.5 text-pretty mt-8 mb-2"
               >
                 The Engine of the Internet
@@ -166,23 +170,24 @@ function Landing() {
           </div>
         </Container>
       </section>
-      <div className="relative overflow-hidden h-22 lg:h-48 mt-15">
+      <div className="relative overflow-hidden h-22 lg:h-48 mt-4">
         <div
-          className="absolute top-10 left-1/2 -translate-x-1/2 flex items-center justify-center z-0"
+          className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center justify-center z-0"
           aria-hidden="true"
         >
           <div className="world-sphere" />
         </div>
       </div>
-      <section aria-label="PHP 8.5">
+      <section aria-labelledby="new-features-heading">
         <Container
           maxWidth="full"
           className="pt-16 pb-6 bg-primary-container text-on-primary-container"
         >
           <div className="flex flex-col items-center">
             <Typography
-              variant="h1"
+              variant="h2"
               component="h2"
+              id="new-features-heading"
               className="text-center text-balance"
             >
               New in PHP 8.5
@@ -203,11 +208,19 @@ function Landing() {
             <KeyFeatureArticle key={index} {...feature} />
           ))}
           <div className="mt-6 text-center">
-            <Typography variant="h3" color="tertiary" component="h3">
+            <Typography
+              variant="h3"
+              color="tertiary"
+              component="h3"
+              id="deprecations-heading"
+            >
               Deprecations
             </Typography>
             <Container maxWidth="3xl">
-              <ul className="mt-6 text-left">
+              <ul
+                className="mt-6 text-left"
+                aria-labelledby="deprecations-heading"
+              >
                 <li className="mb-3">
                   <div className="flex items-start gap-2">
                     <DeprecateIcon
@@ -216,9 +229,9 @@ function Landing() {
                     />
                     <span className="flex-1 min-w-0">
                       All{" "}
-                      <span className="font-mono p-0.5 px-2 rounded bg-surface-container-highest whitespace-nowrap">
+                      <code className="font-mono p-0.5 px-2 rounded bg-surface-container-highest whitespace-nowrap">
                         MHASH_*
-                      </span>{" "}
+                      </code>{" "}
                       constants deprecated
                     </span>
                   </div>
@@ -231,9 +244,9 @@ function Landing() {
                     />
                     <span className="flex-1 min-w-0 wrap-break-word">
                       Non-canonical scalar type casts{" "}
-                      <span className="font-mono p-0.5 px-2 rounded bg-surface-container-highest whitespace-nowrap">
+                      <code className="font-mono p-0.5 px-2 rounded bg-surface-container-highest whitespace-nowrap">
                         (boolean|double|integer|binary)
-                      </span>{" "}
+                      </code>{" "}
                       deprecated
                     </span>
                   </div>
@@ -279,12 +292,13 @@ function Landing() {
           </div>
         </Container>
       </section>
-      <section aria-label="Why upgrade to PHP 8.5">
+      <section aria-labelledby="upgrade-heading">
         <Container maxWidth="full" className="py-6">
           <div className="flex flex-col items-center">
             <Typography
-              variant="h1"
+              variant="h2"
               component="h2"
+              id="upgrade-heading"
               className="text-center text-balance text-shadow-primary text-shadow-xl"
             >
               Why Upgrade?
@@ -309,11 +323,16 @@ function Landing() {
                 className="hover:shadow-2xl shadow-primary-container/50"
                 fullWidth
               >
-                <img src={card.image} alt="Support" className="mb-2" />
-                <Typography variant="h4" component="h4" className="mb-4">
+                <img
+                  src={card.image}
+                  alt=""
+                  aria-hidden="true"
+                  className="mb-2"
+                />
+                <Typography variant="h3" component="h3" className="mb-4">
                   {card.title}
                 </Typography>
-                <Typography variant="body" component="h4" className="mb-3">
+                <Typography variant="body" className="mb-3">
                   {card.description}
                 </Typography>
               </Card>
@@ -321,12 +340,13 @@ function Landing() {
           </Grid>
         </Container>
       </section>
-      <section aria-label="Blog entries">
+      <section aria-labelledby="blog-heading">
         <Container maxWidth="full" className="py-6 mt-6 lg:mt-12">
           <div className="flex flex-col items-center">
             <Typography
-              variant="h1"
+              variant="h2"
               component="h2"
+              id="blog-heading"
               className="text-center text-balance text-shadow-primary text-shadow-xl"
             >
               Latest news
@@ -358,7 +378,7 @@ function Landing() {
           </div>
         </Container>
       </section>
-      <section aria-label="The PHP Foundation">
+      <section aria-labelledby="foundation-heading">
         <Container
           maxWidth="5xl"
           className="mt-12 py-6 bg-primary-container text-on-primary-container"
@@ -366,11 +386,17 @@ function Landing() {
           <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center">
             <img
               src={FoundationImg}
-              alt="PHP Foundation Logo"
+              alt=""
+              aria-hidden="true"
               className="size-24 md:size-48"
             />
             <div className="flex-1">
-              <Typography variant="h2" component="h3" className="text-pretty">
+              <Typography
+                variant="h2"
+                component="h2"
+                id="foundation-heading"
+                className="text-pretty"
+              >
                 The PHP Foundation
               </Typography>
               <Typography
@@ -396,12 +422,13 @@ function Landing() {
           </div>
         </Container>
       </section>
-      <section aria-label="Upcoming conferences and events">
+      <section aria-labelledby="conferences-heading">
         <Container maxWidth="full" className="py-6 mt-6 lg:mt-12">
           <div className="flex flex-col items-center">
             <Typography
-              variant="h1"
+              variant="h2"
               component="h2"
+              id="conferences-heading"
               className="text-center text-balance text-shadow-primary text-shadow-xl"
             >
               Upcoming conferences
@@ -447,8 +474,9 @@ function Landing() {
           <Container maxWidth="full" className="py-6 mt-4">
             <div className="flex flex-col items-center">
               <Typography
-                variant="h2"
+                variant="h3"
                 component="h3"
+                id="cfp-heading"
                 className="text-center text-balance text-shadow-primary text-shadow-xl"
               >
                 Conferences calling for papers
@@ -486,12 +514,13 @@ function Landing() {
           </div>
         </Container>
       </section>
-      <section aria-label="Special thanks">
+      <section aria-labelledby="sponsors-heading">
         <Container maxWidth="full" className="py-6 mt-6 lg:mt-12">
           <div className="flex flex-col items-center">
             <Typography
-              variant="h1"
+              variant="h2"
               component="h2"
+              id="sponsors-heading"
               className="text-center text-balance text-shadow-primary text-shadow-xl"
             >
               Special thanks
