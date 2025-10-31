@@ -37,7 +37,7 @@ function Navbar() {
       href: "#",
     },
     {
-      text: "Php 8.5",
+      text: "PHP 8.5",
       href: "#",
     },
   ];
