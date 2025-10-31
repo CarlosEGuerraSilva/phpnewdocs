@@ -8,11 +8,16 @@ import {
 import { cn } from "@/utils/cn";
 import clsx from "clsx";
 import { forwardRef } from "react";
+import { Link } from "react-router-dom";
 
 interface MenuItemProps
   extends Omit<React.LiHTMLAttributes<HTMLLIElement>, "color">,
     WithDualContent,
-    Omit<WithWidgetOptions, "loading"> {}
+    Omit<WithWidgetOptions, "loading"> {
+  href?: string;
+  target?: string;
+  rel?: string;
+}
 
 const MENU_ITEM_BASE_CLASSES = clsx(
   "flex items-center rounded-md list-none cursor-pointer",
@@ -93,13 +98,16 @@ const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       startContent,
       endContent,
       disabled = false,
+      href,
+      target,
+      rel,
       children,
+      onClick,
+      className: customClassName,
       ...props
     },
     forwardedRef
   ) => {
-    const { className: customClassName, ...restProps } = props;
-
     const className = cn(
       MENU_ITEM_BASE_CLASSES,
       MENU_ITEM_SIZE_CLASSES[size],
@@ -114,11 +122,52 @@ const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       customClassName
     );
 
-    return (
-      <li ref={forwardedRef} className={className} {...restProps}>
+    const content = (
+      <>
         {startContent && <span className="me-2">{startContent}</span>}
         <span className="flex-1">{children}</span>
         {endContent && <span className="ms-2">{endContent}</span>}
+      </>
+    );
+
+    const isExternal = href?.startsWith("http");
+    const linkProps = isExternal
+      ? {
+          target: target || "_blank",
+          rel: rel || "noopener noreferrer",
+        }
+      : { target, rel };
+
+    return (
+      <li ref={forwardedRef} className={disabled ? "opacity-50 pointer-events-none" : ""}>
+        {href ? (
+          isExternal ? (
+            <a
+              href={href}
+              className={cn(className, "no-underline")}
+              onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
+              {...linkProps}
+            >
+              {content}
+            </a>
+          ) : (
+            <Link
+              to={href}
+              className={cn(className, "no-underline")}
+              onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
+            >
+              {content}
+            </Link>
+          )
+        ) : (
+          <div 
+            className={className} 
+            onClick={onClick as unknown as React.MouseEventHandler<HTMLDivElement>}
+            {...(props as React.HTMLAttributes<HTMLDivElement>)}
+          >
+            {content}
+          </div>
+        )}
       </li>
     );
   }
