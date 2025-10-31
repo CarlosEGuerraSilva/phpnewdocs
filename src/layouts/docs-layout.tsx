@@ -6,6 +6,7 @@ import Grid from "@/components/grid";
 import { ChevronLeftIcon } from "@/components/icons/chevron-left-icon";
 import { ChevronRightIcon } from "@/components/icons/chevron-right-icon";
 import Navbar from "@/components/navbar";
+import ScrollReset from "@/components/scroll-reset";
 import Select from "@/components/select";
 import { useSidebarData } from "@/hooks/use-sidebar-data";
 import { cn } from "@/utils/cn";
@@ -38,13 +39,15 @@ function DocsLayout({
   activeNavKey,
 }: DocsLayoutProps) {
   const sidebarData = useSidebarData();
-  const isTablet = useBreakpointCondition({ lessThan: "lg" });
+  const isMobile = useBreakpointCondition({ lessThan: "md" });
+  const isTablet = useBreakpointCondition({ largerThan: "md", lessThan: "lg" });
 
   return (
     <div className="min-h-dvh w-dvw relative max-w-full bg-background text-on-background">
       <title>{title}</title>
       <meta name="description" content={description} />
       <Navbar />
+      <ScrollReset />
       <Container maxWidth="7xl">
         <div className="my-4 flex justify-end">
           <Select>
@@ -59,12 +62,14 @@ function DocsLayout({
       </Container>
       <Container maxWidth="7xl">
         <div className="flex flex-col md:flex-row gap-4 justify-center max-w-full">
-          <aside className="md:w-64 md:sticky md:top-20 md:self-start">
+          <aside className="w-full md:max-w-44 lg:max-w-64 md:sticky md:top-20 md:self-start">
             <DocNav data={sidebarData} activeKey={activeNavKey} />
           </aside>
-          <main className="flex-1">
+          <main className="flex-1 min-w-0">
             {breadCrumbs}
-            <section className="mt-4">{children}</section>
+            <section className="mt-4 overflow-x-auto">
+              <div className="max-w-full">{children}</div>
+            </section>
             <div className="mt-12 mb-10">
               <Grid columns={{ xs: 2 }} className="gap-4">
                 {previousPage && (
@@ -87,7 +92,7 @@ function DocsLayout({
               </Grid>
             </div>
           </main>
-          {asideContent && !isTablet && (
+          {asideContent && !isMobile && !isTablet && (
             <aside className="md:w-64 md:sticky md:top-20 md:self-start">
               {asideContent}
             </aside>

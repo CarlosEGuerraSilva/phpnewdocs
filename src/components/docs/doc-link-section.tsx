@@ -8,7 +8,7 @@ function DocLinkSection({
   return (
     <a
       href={`#${headingId}`}
-      className="inline-block border-l-5 ps-2 mb-2 border-primary/10 hover:border-primary transition-colors"
+      className="block border-l-5 ps-2 mb-2 border-primary/10 hover:border-primary transition-colors"
     >
       {label}
     </a>
