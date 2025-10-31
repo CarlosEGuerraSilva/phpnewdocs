@@ -33,7 +33,7 @@ $result = $input
 ?>
 // $result is "Hello Php 8.5!"`,
 	noDiscardCode: `<?php
-	#[NoDiscard]
+#[NoDiscard]
 function calculateTotal(int $a, int $b): int
 {
     return $a + $b;
