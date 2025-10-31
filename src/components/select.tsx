@@ -13,7 +13,7 @@ import {
   INPUT_SIZE_CLASSES,
   INPUT_VARIANT_CLASSES,
   INPUT_VARIANT_OVERRIDES,
-} from "./input";
+} from "@/consts/input-base";
 
 export interface SelectProps
   extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "size" | "color">,
