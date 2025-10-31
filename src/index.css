@@ -159,6 +159,10 @@ html[debug] *, html[debug] *::before, html[debug] *::after {
 	background: transparent !important;
 }
 
+:not(pre)>code[class*="language-"], pre[class*="language-"] {
+	background-color: #17181b !important;
+}
+
 .custom-scroll {
 	scrollbar-width: thin;
 	scrollbar-color: rgb(var(--color-outline)) rgb(var(--color-surface-container-low));
