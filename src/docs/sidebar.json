@@ -4,10 +4,19 @@
     {
       "label": "Introduction",
       "items": [
-        "What is PHP",
+        {
+          "text": "What is PHP",
+          "link": "/docs/8_5_0"
+        },
         "Version history",
-        "What's new?",
-        "Migration guides"
+        {
+          "text": "PHP 8.5",
+          "link": "/docs/8_5_0/php-8-5"
+        },
+        {
+          "text": "Migration guides",
+          "link": "/docs/8_5_0/migration-guide"
+        }
       ]
     },
     {
