@@ -310,7 +310,7 @@ function Landing() {
                 </li>
               </ul>
             </Container>
-            <div className="py-10 mb-4 flex justify-center items-center">
+            <div className="py-10 mb-4 flex flex-col md:flex-row gap-4 justify-center items-center">
               <Button
                 href={LINKS.docs}
                 startContent={<DocsIcon size={20} />}
@@ -320,6 +320,17 @@ function Landing() {
                 fullWidth={isMobile}
               >
                 See migration guide
+              </Button>
+              <Button
+                href={LINKS.docs}
+                startContent={<DocsIcon size={20} />}
+                color="secondary"
+                variant="bordered"
+                size={isMobile ? "lg" : "xl"}
+                textAlign={isMobile ? "left" : "center"}
+                fullWidth={isMobile}
+              >
+                Release notes
               </Button>
             </div>
           </div>
