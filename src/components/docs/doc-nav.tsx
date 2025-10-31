@@ -4,8 +4,17 @@ import { useEffect, useState } from "react";
 
 interface SidebarSection {
   label: string;
-  items: string[];
+  items: SidebarItem[];
 }
+
+interface SidebarValidSection {
+  text: string;
+  link: string;
+  type?: string;
+  id?: string;
+}
+
+type SidebarItem = string | SidebarValidSection;
 
 interface SidebarData {
   sidebar: SidebarSection[];
@@ -58,10 +67,18 @@ function DocNav({ data, activeKey, onItemClick }: DocNavProps) {
 
   const [isInitialized, setIsInitialized] = useState(false);
 
+  const getItemKey = (item: SidebarItem): string => {
+    return typeof item === "string" ? item : item.link || item.text;
+  };
+
+  const getItemText = (item: SidebarItem): string => {
+    return typeof item === "string" ? item : item.text;
+  };
+
   useEffect(() => {
     if (!isInitialized && activeKey) {
       const sectionWithActiveKey = data.sidebar.find((section) =>
-        section.items.includes(activeKey)
+        section.items.some((item) => getItemKey(item) === activeKey)
       );
 
       if (
@@ -133,17 +150,23 @@ function DocNav({ data, activeKey, onItemClick }: DocNavProps) {
               {isExpanded && (
                 <ul className="mt-1 ms-4 space-y-0.5">
                   {section.items.map((item) => {
-                    const isActive = activeKey === item;
+                    const itemKey = getItemKey(item);
+                    const itemText = getItemText(item);
+                    const itemLink =
+                      typeof item === "string" ? undefined : item.link;
+                    const isActive = activeKey === itemKey;
+
                     return (
                       <MenuItem
-                        key={item}
+                        key={itemKey}
                         variant={isActive ? "solid" : "light"}
                         color={isActive ? "primary" : "default"}
                         size="sm"
-                        onClick={() => handleItemClick(item)}
+                        href={itemLink}
+                        onClick={() => handleItemClick(itemKey)}
                         className={cn("text-sm", isActive && "font-medium")}
                       >
-                        {item}
+                        {itemText}
                       </MenuItem>
                     );
                   })}
