@@ -33,6 +33,12 @@ function Landing() {
   const { theme } = useTheme();
   const isMobile = useBreakpointCondition({ lessThan: "sm" });
 
+  const pageTitle = "PHP: Hypertext Preprocessor";
+  const pageDescription =
+    "PHP is a popular general-purpose scripting language that is especially suited to web development. Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world.";
+  const pageUrl = "https://php.net";
+  const pageImage = "https://php.net/images/php-logo.png";
+
   const NewKeyFeatures: KeyFeatureArticleProps[] = [
     {
       title: "Typed Class Constants",
@@ -89,6 +95,33 @@ function Landing() {
 
   return (
     <LandingLayout>
+      {/* Page Metadata */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:image" content={pageImage} />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={pageUrl} />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content={pageImage} />
+
+      {/* Additional SEO */}
+      <meta
+        name="keywords"
+        content="PHP, PHP 8.5, programming language, web development, server-side scripting, hypertext preprocessor"
+      />
+      <meta name="author" content="The PHP Group" />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={pageUrl} />
+
       <section aria-labelledby="announcement-heading">
         <h2 id="announcement-heading" className="sr-only">
           Announcement

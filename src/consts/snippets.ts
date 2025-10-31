@@ -48,7 +48,7 @@ $total = calculateTotal(5, 10);
 ?>`,
 	urlApiCode: `<?php
 // New in PHP 8.5
-use Uri\WhatWg\Url;
+use Uri\\WhatWg\\Url;
 
 $url = Url::parse('https://example.com/path?query=1');
 
