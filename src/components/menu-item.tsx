@@ -139,13 +139,18 @@ const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       : { target, rel };
 
     return (
-      <li ref={forwardedRef} className={disabled ? "opacity-50 pointer-events-none" : ""}>
+      <li
+        ref={forwardedRef}
+        className={disabled ? "opacity-50 pointer-events-none" : ""}
+      >
         {href ? (
           isExternal ? (
             <a
               href={href}
               className={cn(className, "no-underline")}
-              onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
+              onClick={
+                onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>
+              }
               {...linkProps}
             >
               {content}
@@ -154,15 +159,19 @@ const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
             <Link
               to={href}
               className={cn(className, "no-underline")}
-              onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
+              onClick={
+                onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>
+              }
             >
               {content}
             </Link>
           )
         ) : (
-          <div 
-            className={className} 
-            onClick={onClick as unknown as React.MouseEventHandler<HTMLDivElement>}
+          <div
+            className={className}
+            onClick={
+              onClick as unknown as React.MouseEventHandler<HTMLDivElement>
+            }
             {...(props as React.HTMLAttributes<HTMLDivElement>)}
           >
             {content}
