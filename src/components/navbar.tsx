@@ -10,10 +10,7 @@ import NavbarToggle from "./navbar-toggle";
 import React from "react";
 import { Kbd } from "./kbd";
 import { SearchIcon } from "./icons/search-icon";
-import {
-  useBreakpointCondition,
-  useBreakpointDown,
-} from "react-tw-breakpoints";
+import { useBreakpointCondition } from "react-tw-breakpoints";
 import { cn } from "@/utils/cn";
 import { LINKS } from "@/consts/links";
 
@@ -25,7 +22,6 @@ interface MainLink {
 function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const isTablet = useBreakpointCondition({ lessThan: "lg" });
-  const isMobile = useBreakpointCondition({ lessThan: "md" });
 
   const MainLinks: MainLink[] = [
     {
