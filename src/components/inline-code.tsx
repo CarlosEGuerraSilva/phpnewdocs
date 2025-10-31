@@ -1,8 +1,8 @@
 import { cn } from "@/utils/cn";
 
-interface InlineCodeProps extends React.HTMLAttributes<HTMLElement> {}
-
-const InlineCode: React.FC<InlineCodeProps> = ({ ...props }) => {
+const InlineCode: React.FC<React.HTMLAttributes<HTMLElement>> = ({
+  ...props
+}) => {
   return (
     <code
       className={cn(
