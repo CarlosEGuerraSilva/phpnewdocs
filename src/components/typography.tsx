@@ -28,6 +28,7 @@ interface TypographyProps extends WithTextAlignment {
   children?: ReactNode;
   color?: ThemeColors;
   className?: string;
+  id?: string;
 }
 
 const TYPOGRAPHY_BASE_CLASSES = "font-sans";
