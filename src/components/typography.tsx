@@ -61,7 +61,7 @@ const TEXT_ALIGNMENT_CLASSES: Record<TextAlignment, string> = {
   left: "text-left",
   center: "text-center",
   right: "text-right",
-  inherit: "text-inherit",
+  inherit: "",
 };
 
 const Typography: React.FC<TypographyProps> = ({
