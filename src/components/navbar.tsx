@@ -43,10 +43,8 @@ function Navbar() {
   ];
 
   return (
-    <div className="px-2 py-1 md:px-4 md:py-2 bg-primary-container sticky top-0 z-20">
-      <header role="banner" aria-label="PHP" />
+    <header className="px-2 py-1 md:px-4 md:py-2 bg-primary-container sticky top-0 z-20">
       <nav
-        role="navigation"
         aria-label="Main navigation"
         className="flex justify-between items-center"
       >
@@ -58,15 +56,25 @@ function Navbar() {
               setIsOpen(!isOpen);
             }}
             className="md:hidden"
+            aria-label={
+              isOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={isOpen}
+            aria-controls="main-menu"
           />
-          <a href={LINKS.home} role="img" className="mx-2 lg:mx-8 md:px-4">
+          <a
+            href={LINKS.home}
+            className="mx-2 lg:mx-8 md:px-4"
+            aria-label="PHP Home"
+          >
             <LogoSquare
               size={48}
               className="text-on-primary-container"
-              aria-label="PHP Logo"
+              aria-hidden="true"
             />
           </a>
           <ul
+            id="main-menu"
             className={cn(
               "gap-2 lg:gap-4",
               "hidden md:flex md:flex-row",
@@ -75,23 +83,30 @@ function Navbar() {
             )}
           >
             {MainLinks.map((link, idx) => (
-              <Button
-                key={idx}
-                size="sm"
-                href={link.href}
-                color="surface"
-                textAlign="left"
-                variant="light"
-                text={link.text}
-                className="py-3"
-              />
+              <li key={idx}>
+                <Button
+                  size="sm"
+                  href={link.href}
+                  color="surface"
+                  textAlign="left"
+                  variant="light"
+                  className="py-3"
+                >
+                  {link.text}
+                </Button>
+              </li>
             ))}
           </ul>
         </div>
         <div className="flex-1 flex justify-end">
           <div className="flex gap-1 items-center">
             {isTablet ? (
-              <Button variant="light" color="surface" size="xs">
+              <Button
+                variant="light"
+                color="surface"
+                size="xs"
+                aria-label="Search documentation"
+              >
                 <SearchIcon />
               </Button>
             ) : (
@@ -102,6 +117,7 @@ function Navbar() {
                 startContent={<SearchIcon size={16} />}
                 endContent={<Kbd>K</Kbd>}
                 className="ps-3 px-1 min-w-42 cursor-text border-surface-tint/50 active:scale-100"
+                aria-label="Search documentation"
               >
                 Search...
               </Button>
@@ -113,6 +129,7 @@ function Navbar() {
                   startContent={<LangIcon size={24} />}
                   color="surface"
                   variant="light"
+                  aria-label="Select language"
                 >
                   En
                 </Button>
@@ -136,15 +153,16 @@ function Navbar() {
               size="xs"
               color="surface"
               variant="light"
-              href="#"
+              href="https://github.com"
               target="_blank"
+              aria-label="View source on GitHub"
             >
               <GitHub />
             </Button>
           </div>
         </div>
       </nav>
-    </div>
+    </header>
   );
 }
 
