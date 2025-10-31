@@ -3,7 +3,12 @@
   "sidebar": [
     {
       "label": "Introduction",
-      "items": ["What is PHP", "Version history", "Migration guides"]
+      "items": [
+        "What is PHP",
+        "Version history",
+        "What's new?",
+        "Migration guides"
+      ]
     },
     {
       "label": "Installation & Configuration",
