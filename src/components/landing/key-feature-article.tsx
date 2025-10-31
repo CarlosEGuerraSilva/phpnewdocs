@@ -4,7 +4,6 @@ import CodeComparator from "../code-comparator";
 import CodeHighlighter from "../code-highlighter";
 import { DocsIcon } from "../icons/docs-icon";
 import Typography from "../typography";
-import { Container } from "../container";
 import { cn } from "@/utils/cn";
 import Grid from "../grid";
 
