@@ -29,7 +29,7 @@ const KeyFeatureArticle: React.FC<KeyFeatureArticleProps> = ({
   const DescriptionContent = () => (
     <>
       <Typography
-        variant="h2"
+        variant="h3"
         color="primary"
         component="h3"
         className="text-pretty"
@@ -49,8 +49,12 @@ const KeyFeatureArticle: React.FC<KeyFeatureArticleProps> = ({
         href={href}
         className="mt-3"
         endContent={<DocsIcon size={16} />}
-        text="Learn more"
-      />
+        aria-label={`Learn more about ${
+          typeof title === "string" ? title : "this feature"
+        }`}
+      >
+        Learn more
+      </Button>
     </>
   );
 
@@ -58,12 +62,14 @@ const KeyFeatureArticle: React.FC<KeyFeatureArticleProps> = ({
     <article className="pb-6 md:pb-12 mb-6 md:mb-12 border-b border-outline-variant">
       {code && !codeBefore && !codeAfter ? (
         <Grid columns={{ xs: 1, md: 2 }} className="gap-12 items-start">
-          <div className="self-center lg:ps-6">{<DescriptionContent />}</div>
+          <div className="self-center lg:ps-6">
+            <DescriptionContent />
+          </div>
           <CodeHighlighter code={code} theme={theme} className="w-full" />
         </Grid>
       ) : (
         <>
-          {<DescriptionContent />}
+          <DescriptionContent />
           <CodeComparator
             className="mt-6"
             before={
