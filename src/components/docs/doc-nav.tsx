@@ -68,11 +68,15 @@ function DocNav({ data, activeKey, onItemClick }: DocNavProps) {
   const [isInitialized, setIsInitialized] = useState(false);
 
   const getItemKey = (item: SidebarItem): string => {
-    return typeof item === "string" ? item : item.link || item.text;
+    return typeof item === "string" ? item : item.text;
   };
 
   const getItemText = (item: SidebarItem): string => {
     return typeof item === "string" ? item : item.text;
+  };
+
+  const getItemLink = (item: SidebarItem): string | undefined => {
+    return typeof item === "string" ? undefined : item.link;
   };
 
   useEffect(() => {
@@ -152,8 +156,7 @@ function DocNav({ data, activeKey, onItemClick }: DocNavProps) {
                   {section.items.map((item) => {
                     const itemKey = getItemKey(item);
                     const itemText = getItemText(item);
-                    const itemLink =
-                      typeof item === "string" ? undefined : item.link;
+                    const itemLink = getItemLink(item);
                     const isActive = activeKey === itemKey;
 
                     return (
