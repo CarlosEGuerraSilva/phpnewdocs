@@ -1,0 +1,86 @@
+{
+  "$schema": "./sidebar.schema.json",
+  "sidebar": [
+    {
+      "label": "Introduction",
+      "items": ["What is PHP", "Version history", "Migration guides"]
+    },
+    {
+      "label": "Installation & Configuration",
+      "items": [
+        "System requirements",
+        "Installation on Windows",
+        "Installation on macOS",
+        "Installation on Linux",
+        "php.ini configuration",
+        "Modules and extensions"
+      ]
+    },
+    {
+      "label": "Language Reference",
+      "items": [
+        "Syntax",
+        "Data types",
+        "Variables and constants",
+        "Operators",
+        "Control structures",
+        "Functions",
+        "Classes and objects",
+        "Namespaces",
+        "Exceptions",
+        "Generators"
+      ]
+    },
+    {
+      "label": "Standard Functions",
+      "items": [
+        "Array functions",
+        "String functions",
+        "Date and time",
+        "Math functions",
+        "JSON",
+        "Regular expressions",
+        "Streams",
+        "Sessions",
+        "Filters and validation"
+      ]
+    },
+    {
+      "label": "Extensions & APIs",
+      "items": [
+        "MySQLi / PDO",
+        "cURL",
+        "GD / ImageMagick",
+        "OpenSSL",
+        "Zip / Zlib",
+        "Intl",
+        "XML / DOM / SimpleXML"
+      ]
+    },
+    {
+      "label": "Advanced Topics",
+      "items": [
+        "Error handling",
+        "Security",
+        "Advanced OOP",
+        "Memory and performance",
+        "Concurrency and Fibers",
+        "CLI options",
+        "FFI (Foreign Function Interface)"
+      ]
+    },
+    {
+      "label": "References",
+      "items": [
+        "Predefined constants",
+        "Stream contexts",
+        "php.ini directives",
+        "Internal functions"
+      ]
+    },
+    {
+      "label": "Appendices",
+      "items": ["Version migrations", "License", "Credits"]
+    }
+  ]
+}

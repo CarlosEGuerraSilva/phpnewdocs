@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sidebar configuration schema",
+  "type": "object",
+  "properties": {
+    "sidebar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                { "type": "string" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "text": { "type": "string" },
+                    "link": { "type": "string" },
+                    "type": { "type": "string" },
+                    "id": { "type": "string" }
+                  },
+                  "required": ["text"]
+                }
+              ]
+            }
+          }
+        },
+        "required": ["label", "items"]
+      }
+    }
+  },
+  "required": ["sidebar"]
+}
