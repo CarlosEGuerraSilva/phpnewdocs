@@ -44,7 +44,7 @@ function Landing() {
       title: "Typed Class Constants",
       subtitle:
         "Bring the full power of PHP's type system to your class constants. Enforce type safety at the language level, eliminating runtime checks and improving static analysis.",
-      href: LINKS.docs + "/typed-class-constants",
+      href: LINKS.releaseNotes + "#",
       codeBefore: SNIPPETS.typedClassBefore,
       codeAfter: SNIPPETS.typedClassAfter,
     },
@@ -52,7 +52,7 @@ function Landing() {
       title: "A New Flow: The Pipe Operator (|>)",
       subtitle:
         "Stop nesting functions. PHP 8.5 introduces the pipe operator, letting you chain operations in a clean, readable, top-to-bottom flow. It passes the result of the left expression as the first argument to the callable on the right.",
-      href: LINKS.docs + "/pipe-operator",
+      href: LINKS.releaseNotes + "#pipe-operator",
       codeBefore: SNIPPETS.pipeOperatorBefore,
       codeAfter: SNIPPETS.pipeOperatorAfter,
     },
