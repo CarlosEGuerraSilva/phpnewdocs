@@ -23,6 +23,10 @@
       "label": "Installation & Configuration",
       "items": [
         "System requirements",
+        {
+          "text": "Downloads",
+          "link": "/docs/8_5_0/downloads"
+        },
         "Installation on Windows",
         "Installation on macOS",
         "Installation on Linux",
