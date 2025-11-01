@@ -73,7 +73,7 @@ function ChevronDownIcon({ className }: { className?: string }) {
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
   (
     {
-      variant = "solid",
+      variant = "bordered",
       size = "md",
       color = "default",
       startContent,
