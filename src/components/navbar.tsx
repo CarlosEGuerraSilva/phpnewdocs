@@ -163,7 +163,7 @@ function Navbar() {
               size="xs"
               color="surface"
               variant="light"
-              href="https://github.com"
+              href="https://github.com/php/web-php"
               target="_blank"
               aria-label="View source on GitHub"
             >
