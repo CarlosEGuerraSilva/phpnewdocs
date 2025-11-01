@@ -17,27 +17,26 @@ const INPUT_SIZE_CLASSES: Record<ComponentSizes, string> = {
 
 const INPUT_COLOR_CLASSES: Record<ThemeColors, string> = {
 	primary:
-		"bg-primary-container/10 text-on-primary-container border-primary-container focus:border-primary",
+		"bg-primary-container text-on-primary-container border-primary-container shadow-primary/10",
 	secondary:
-		"bg-secondary-container/10 text-on-secondary-container border-secondary-container focus:border-secondary",
+		"bg-secondary-container text-on-secondary-container border-secondary-container shadow-secondary/10",
 	tertiary:
-		"bg-tertiary-container/10 text-on-tertiary-container border-tertiary-container focus:border-tertiary",
-	default:
-		"bg-surface-container text-on-surface border-surface-variant focus:border-on-surface",
-	danger: "bg-danger/10 text-on-danger border-danger focus:border-danger",
-	success: "bg-success/10 text-on-success border-success focus:border-success",
-	warning: "bg-warning/10 text-on-warning border-warning focus:border-warning",
+		"bg-tertiary-container text-on-tertiary-container border-tertiary-container shadow-tertiary/10",
+	default: "bg-default text-on-default border-default shadow-default/10",
+	danger: "bg-danger text-on-danger border-danger shadow-danger/10",
+	success: "bg-success text-on-success border-success shadow-success/10",
+	warning: "bg-warning text-on-warning border-warning shadow-warning/10",
 	surface:
-		"bg-surface text-on-surface border-surface-variant focus:border-on-surface",
+		"bg-surface text-on-surface border-surface shadow-surface/10 border-on-surface-container",
 };
 
 const INPUT_VARIANT_CLASSES: Record<ComponentVariants, string> = {
-	solid: "border-0",
-	contained: "border-2",
+	solid: "",
+	contained: "bg-surface-container border-2 border-surface-variant",
 	bordered: "bg-transparent border-2",
-	light: "bg-transparent border-0 border-b-2 rounded-none",
-	ghost: "bg-transparent border-0",
-	shadow: "shadow-md focus:shadow-lg border-0",
+	light: "bg-transparent",
+	ghost: "bg-transparent border-2",
+	shadow: "shadow-md focus:shadow-lg",
 };
 
 const INPUT_VARIANT_OVERRIDES: Record<
@@ -45,16 +44,35 @@ const INPUT_VARIANT_OVERRIDES: Record<
 	Partial<Record<ThemeColors, string>>
 > = {
 	contained: {
-		default: "bg-surface-container",
+		primary: "text-primary",
+		secondary: "text-secondary",
+		tertiary: "text-tertiary",
+		default: "text-default",
+		danger: "text-danger",
+		success: "text-success",
+		warning: "text-warning",
 	},
 	light: {
-		default: "focus:border-on-surface",
+		primary: "focus:bg-primary-container/20 text-on-primary-container",
+		secondary: "focus:bg-secondary-container/20 text-on-secondary-container",
+		tertiary: "focus:bg-tertiary-container/20 text-on-tertiary-container",
+		default: "focus:bg-default/20 text-default focus:text-on-background",
+		danger: "focus:bg-danger/20 text-danger focus:text-on-danger",
+		success: "focus:bg-success/20 text-success focus:text-on-success",
+		warning: "focus:bg-warning/20 text-warning focus:text-on-background",
 	},
 	bordered: {
-		default: "border-surface-variant focus:border-on-surface",
+		default: "text-default border-default/60 hover:border-default active:border-default",
+		warning: "text-warning",
+		success: "text-success",
+		danger: "text-danger",
 	},
 	ghost: {
-		default: "hover:bg-surface-container/50",
+		default: "text-default focus:text-on-default",
+		warning: "text-warning focus:text-on-warning",
+		success: "text-success focus:text-on-success",
+		danger: "text-danger focus:text-on-danger",
+		surface: "focus:border-surface",
 	},
 };
 
