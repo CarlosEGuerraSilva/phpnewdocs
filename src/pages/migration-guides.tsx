@@ -1,9 +1,6 @@
-import Button from "@/components/button";
-import Card from "@/components/card";
 import CodeHighlighter from "@/components/code-highlighter";
 import DocLinkSection from "@/components/docs/doc-link-section";
-import { DislikeIcon } from "@/components/icons/dislike-icon";
-import { LikeIcon } from "@/components/icons/like-icon";
+import FeedbackVote from "@/components/feedback-vote";
 import InlineCode from "@/components/inline-code";
 import Typography from "@/components/typography";
 import { LINKS } from "@/consts/links";
@@ -413,31 +410,7 @@ function MigrationGuidesPage() {
         .
       </Typography>
 
-      <div className="mt-9">
-        <Card>
-          <Typography variant="body" textAlign="center" className="mb-3">
-            Was this page helpful?
-          </Typography>
-          <div className="flex justify-center gap-2">
-            <Button
-              startContent={<LikeIcon size={20} />}
-              color="primary"
-              variant="ghost"
-              size="sm"
-            >
-              Yes
-            </Button>
-            <Button
-              startContent={<DislikeIcon size={20} />}
-              color="primary"
-              variant="ghost"
-              size="sm"
-            >
-              No
-            </Button>
-          </div>
-        </Card>
-      </div>
+      <FeedbackVote docHref={LINKS.migrationGuide} className="mt-2" />
     </DocsLayout>
   );
 }
