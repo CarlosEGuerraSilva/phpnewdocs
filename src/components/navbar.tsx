@@ -14,6 +14,8 @@ import { useBreakpointCondition } from "react-tw-breakpoints";
 import { cn } from "@/utils/cn";
 import { LINKS } from "@/consts/links";
 import { Link } from "react-router-dom";
+import { useDisclosure } from "@/hooks/use-disclosure";
+import SearchModal from "./search-modal";
 
 interface MainLink {
   text: string;
@@ -23,6 +25,7 @@ interface MainLink {
 function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const isTablet = useBreakpointCondition({ lessThan: "lg" });
+  const { open, setOpen } = useDisclosure();
 
   const MainLinks: MainLink[] = [
     {
@@ -107,6 +110,9 @@ function Navbar() {
                 color="surface"
                 size="xs"
                 aria-label="Search documentation"
+                onClick={() => {
+                  setOpen(true);
+                }}
               >
                 <SearchIcon />
               </Button>
@@ -119,6 +125,9 @@ function Navbar() {
                 endContent={<Kbd>K</Kbd>}
                 className="ps-3 px-1 min-w-42 cursor-text border-surface-tint/50 active:scale-100"
                 aria-label="Search documentation"
+                onClick={() => {
+                  setOpen(true);
+                }}
               >
                 Search...
               </Button>
@@ -162,6 +171,12 @@ function Navbar() {
             </Button>
           </div>
         </div>
+        <SearchModal
+          isOpen={open}
+          onClose={() => {
+            setOpen(false);
+          }}
+        />
       </nav>
     </header>
   );
