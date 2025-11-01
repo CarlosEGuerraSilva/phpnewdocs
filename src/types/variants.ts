@@ -69,6 +69,10 @@ export interface WithFullWidth {
 	fullWidth?: boolean;
 }
 
+export interface WithPositioning {
+	position?: keyof typeof Positioning;
+}
+
 export interface WithDualContent extends WithStartContent, WithEndContent { }
 
 export type ComponentVariants = keyof typeof BaseVariants;
