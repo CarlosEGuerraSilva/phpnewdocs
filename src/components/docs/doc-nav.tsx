@@ -163,7 +163,7 @@ function DocNav({ data, activeKey, onItemClick }: DocNavProps) {
                       <MenuItem
                         key={itemKey}
                         variant={isActive ? "solid" : "light"}
-                        color={isActive ? "primary" : "default"}
+                        color={isActive ? "primary" : "surface"}
                         size="sm"
                         href={itemLink}
                         onClick={() => handleItemClick(itemKey)}

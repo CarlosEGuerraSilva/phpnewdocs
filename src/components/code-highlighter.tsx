@@ -47,7 +47,7 @@ export const CodeHighlighter: React.FC<CodeHighlighterProps> = ({
         setCopied(true);
         setTimeout(() => setCopied(false), 1400);
       } catch {
-        //eslint-disable-next-line no-empty
+        console.error("Failed to copy code to clipboard");
       }
     }
   };

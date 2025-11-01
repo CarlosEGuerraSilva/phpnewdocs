@@ -51,7 +51,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     forwardedRef
   ) => {
-    const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+    const inputId = id || `input-${Math.random().toString(36).substring(2, 9)}`;
     const finalColor = isInvalid ? "danger" : color;
 
     const inputClassName = cn(

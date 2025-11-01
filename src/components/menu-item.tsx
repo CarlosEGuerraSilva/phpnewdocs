@@ -17,10 +17,11 @@ interface MenuItemProps
   href?: string;
   target?: string;
   rel?: string;
+  asList?: boolean;
 }
 
 const MENU_ITEM_BASE_CLASSES = clsx(
-  "flex items-center rounded-md list-none cursor-pointer",
+  "flex items-center rounded-md list-none cursor-pointer list-none marker:hidden",
   "transition-colors duration-200 select-none"
 );
 
@@ -141,7 +142,10 @@ const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
     return (
       <li
         ref={forwardedRef}
-        className={disabled ? "opacity-50 pointer-events-none" : ""}
+        className={cn(
+          disabled ? "opacity-50 pointer-events-none" : "",
+          "marker:hidden list-none"
+        )}
       >
         {href ? (
           isExternal ? (
