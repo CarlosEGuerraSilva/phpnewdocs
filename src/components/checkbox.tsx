@@ -59,6 +59,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       size = "md",
       color = "primary",
       variant = "solid",
+      className,
       ...rest
     }: CheckboxProps,
     forwardedRef
@@ -75,7 +76,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     };
 
     return (
-      <div className={CHECKBOX_BASE_CLASSES}>
+      <div className={cn(CHECKBOX_BASE_CLASSES, className)}>
         <div
           className={cn(
             CHECKBOX_BOX_BASE_CLASSES,
