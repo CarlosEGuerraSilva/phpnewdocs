@@ -67,7 +67,7 @@ function DocsLayout({
           </aside>
           <main className="flex-1 min-w-0">
             {breadCrumbs}
-            <section className="mt-4 overflow-x-auto">
+            <section className="mt-4 overflow-x-auto overflow-y-hidden">
               <div className="max-w-full">{children}</div>
             </section>
             <div className="mt-12 mb-10">
