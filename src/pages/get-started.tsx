@@ -31,7 +31,6 @@ function GetStartedPage() {
       title="Get Started"
       description="Learn how to get started with PHP New Docs."
       activeNavKey="What is PHP"
-      previousPage={{ title: "Download", href: "#" }}
       nextPage={{ title: "Version history", href: "#" }}
       asideContent={<AsideContent />}
     >
