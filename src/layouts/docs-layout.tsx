@@ -82,6 +82,7 @@ function DocsLayout({
                     isPrevious
                   />
                 )}
+                {!previousPage && <div aria-hidden="true"></div>}
                 {nextPage && (
                   <NavigableButton
                     title={nextPage.title}
@@ -89,6 +90,7 @@ function DocsLayout({
                     endContent={<ChevronRightIcon className="ms-4" size={24} />}
                   />
                 )}
+                {!nextPage && <div aria-hidden="true"></div>}
               </Grid>
             </div>
           </main>
