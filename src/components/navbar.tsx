@@ -25,6 +25,7 @@ interface MainLink {
 function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const isTablet = useBreakpointCondition({ lessThan: "lg" });
+  const isMobile = useBreakpointCondition({ lessThan: "md" });
   const { open, setOpen } = useDisclosure();
 
   const MainLinks: MainLink[] = [
@@ -94,6 +95,7 @@ function Navbar() {
                   color="surface"
                   textAlign="left"
                   variant="light"
+                  fullWidth={isMobile}
                   className="py-3"
                 >
                   {link.text}
